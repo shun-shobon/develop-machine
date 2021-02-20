@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 set -eu
 
@@ -17,10 +17,11 @@ dotfiles=(".cache" ".config" ".data" ".vimrc" ".zshenv")
 for file in ${dotfiles[@]}; do
     ln -s "Projects/dotfiles/${file}" "${file}"
 done
+source .zshenv
 
 # install paru
 git clone https://aur.archlinux.org/paru.git
 cd paru
-CARGO_HOME="${XDG_DATA_HOME}/cargo" makepkg -sri --noconfirm
+makepkg -sri --noconfirm
 cd /home/vagrant
 rm -rf paru
