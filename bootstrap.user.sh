@@ -12,11 +12,8 @@ project_dir=Projects
 # install dotfiles
 mkdir "${project_dir}" && cd "${project_dir}"
 git clone https://github.com/shun-shobon/dotfiles
-cd /home/vagrant
-dotfiles=(".cache" ".config" ".data" ".vimrc" ".zshenv")
-for file in ${dotfiles[@]}; do
-    ln -s "Projects/dotfiles/${file}" "${file}"
-done
+cd "${HOME}"
+"${HOME}/${project_dir}/dotfiles/.bin/install.sh"
 source .zshenv
 
 # install paru
