@@ -7,7 +7,7 @@ timedatectl set-ntp true
 timedatectl set-timezone Asia/Tokyo
 
 # install necessary
-pacman -Syyu --noconfirm --needed base base-devel reflector git zsh tmux exa bat fuse-overlayfs podman podman-docker
+pacman -Syyu --noconfirm --needed base base-devel reflector git zsh tmux exa bat fuse-overlayfs podman podman-docker kubectl minikube cri-o
 
 # change locale
 cat <<EOF > /etc/locale.gen
@@ -27,6 +27,12 @@ sed -i -e '/^driver/c driver = "overlay"' -e "/^#mount_program/c mount_program =
 echo "vagrant:10000:65536" >> /etc/subuid
 echo "vagrant:10000:65536" >> /etc/subgid
 podman system migrate
+
+# setup minikube
+minikube config set driver podman
+minikube config set container-runtime cri-o
+swapoff -a
+minikube start || minikube start
 
 # change default shell
 chsh -s $(which zsh) vagrant
