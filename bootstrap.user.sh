@@ -14,7 +14,8 @@ mkdir "${project_dir}" && cd "${project_dir}"
 git clone https://github.com/shun-shobon/dotfiles
 cd "${HOME}"
 "${HOME}/${project_dir}/dotfiles/.bin/install.sh"
-source .zshenv
+source "${HOME}/.zshenv"
+source "${HOME}/.config/zsh/rc/variable.zsh"
 
 # install paru
 git clone https://aur.archlinux.org/paru.git
