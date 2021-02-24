@@ -26,3 +26,9 @@ rm -rf paru
 
 # install neovim-nightly
 paru neovim-nightly-git
+
+# install nvm
+mkdir "${NVM_DIR}"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+source "${NVM_DIR}/nvm.sh"
+nvm install --lts
