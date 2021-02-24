@@ -32,3 +32,6 @@ mkdir "${NVM_DIR}"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 source "${NVM_DIR}/nvm.sh"
 nvm install --lts
+
+# install pnpm
+npm install -g pnpm
