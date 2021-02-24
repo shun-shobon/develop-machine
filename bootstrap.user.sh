@@ -23,3 +23,6 @@ cd paru
 makepkg -sri --noconfirm
 cd /home/vagrant
 rm -rf paru
+
+# install neovim-nightly
+paru neovim-nightly-git
